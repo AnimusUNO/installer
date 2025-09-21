@@ -1,4 +1,4 @@
--- Sanctum UI Database Initialization Script
+-- Animus UI Database Initialization Script
 -- This script creates all necessary tables for the UI management system
 -- Run this script to initialize a fresh database
 

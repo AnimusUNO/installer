@@ -31,7 +31,7 @@ This document defines the **complete and authoritative database schema** for the
 ### 1. Agents
 The primary entities that users interact with - Athena, Monday, Timbre, etc.
 
-**Note**: Agent visibility is controlled through `visible_to_users` and `visible_to_roles` fields, providing simple binary access control at the UI level. Agents themselves handle nuanced access levels through SEP (Sanctum Engagement Protocol).
+**Note**: Agent visibility is controlled through `visible_to_users` and `visible_to_roles` fields, providing simple binary access control at the UI level. Agents themselves handle nuanced access levels through SEP (Animus Engagement Protocol).
 
 ```sql
 agents

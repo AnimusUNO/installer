@@ -165,7 +165,7 @@ If/when you want a "single front door" without changing any module DBs:
   * `agents` (uid, name, path, ports)
   * optional `agent_memberships`
   * optional `user_agent_map` (global ↔ local user mapping cache)
-* `gateway/` authenticates once and proxies `/agent/<uid>/…` to the right local port, injecting identity headers (e.g., `X-Sanctum-User-Email`).
+* `gateway/` authenticates once and proxies `/agent/<uid>/…` to the right local port, injecting identity headers (e.g., `X-Animus-User-Email`).
 * **Control interface** runs from the global venv and can directly import/access agent modules.
 * Modules remain the **source of truth** for their own data (no schema changes).
 

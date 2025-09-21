@@ -150,7 +150,7 @@ WHERE id = 'timbre';
 ## Next Steps (Phase 2)
 
 1. **Chat Integration**: Link chat sessions to authenticated users
-2. **Simple UID Integration**: Map Sanctum users to Broca Letta IDs
+2. **Simple UID Integration**: Map Animus users to Broca Letta IDs
 3. **Chat History**: User-specific chat history
 4. **Agent Switching**: Maintain user context across agents
 

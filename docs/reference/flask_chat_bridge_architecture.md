@@ -317,7 +317,7 @@ def on_typing(data):
 ### **Embeddable Widget (`static/chat_widget.js`)**
 
 ```javascript
-class SanctumChatWidget {
+class AnimusChatWidget {
     constructor(config) {
         this.sessionId = null;
         this.agentId = config.agentId || 'athena';
@@ -479,7 +479,7 @@ Tables are created automatically when you run `python app.py` for the first time
 ## Benefits of This Approach
 
 ### **1. Technical Benefits**
-- **Python Ecosystem**: Seamless integration with existing Sanctum infrastructure
+- **Python Ecosystem**: Seamless integration with existing Animus infrastructure
 - **Performance**: WebSocket for real-time communication, no polling delays
 - **Maintainability**: Single language, familiar patterns
 - **Scalability**: Independent scaling of chat vs. control systems
@@ -520,7 +520,7 @@ Tables are created automatically when you run `python app.py` for the first time
 4. Performance optimization
 
 ### **Phase 4: Integration & Polish**
-1. Full Sanctum control system integration
+1. Full Animus control system integration
 2. Health monitoring and logging
 3. Error handling and recovery
 4. Performance testing and optimization
@@ -529,7 +529,7 @@ Tables are created automatically when you run `python app.py` for the first time
 
 ## Conclusion
 
-The Flask-based chat bridge provides the perfect balance of architectural benefits and implementation simplicity for the Sanctum system. By eliminating the PHP technology mismatch and unnecessary enterprise-level complexity, you get:
+The Flask-based chat bridge provides the perfect balance of architectural benefits and implementation simplicity for the Animus system. By eliminating the PHP technology mismatch and unnecessary enterprise-level complexity, you get:
 
 - **Clean separation** between chat and control interfaces
 - **Python-native integration** with existing infrastructure
@@ -537,4 +537,4 @@ The Flask-based chat bridge provides the perfect balance of architectural benefi
 - **Session persistence** for reliable user experience
 - **Future extensibility** for mobile apps and external integrations
 
-This approach maintains the architectural advantages of the bridge pattern while providing a lightweight, maintainable solution that fits naturally within your existing Sanctum ecosystem.
+This approach maintains the architectural advantages of the bridge pattern while providing a lightweight, maintainable solution that fits naturally within your existing Animus ecosystem.

@@ -105,7 +105,7 @@ AGENT_API_KEY=your_agent_specific_api_key
 ### Step 4: Install Dependencies and Run
 
 ```bash
-# Activate the Sanctum-wide virtual environment
+# Activate the Animus-wide virtual environment
 source ~/animus/venv/bin/activate  # On Windows: ~/animus/venv/Scripts/activate
 
 # Install dependencies for the Broca instance
@@ -174,7 +174,7 @@ TELEGRAM_PHONE=your_phone_number
 # Terminal 1: Start first agent
 cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368
 
-# Activate the Sanctum-wide virtual environment
+# Activate the Animus-wide virtual environment
 source ~/animus/venv/bin/activate  # On Windows: ~/animus/venv/Scripts/activate
 
 # Run the instance from the agent's Broca clone
@@ -183,7 +183,7 @@ python broca/main.py
 # Terminal 2: Start second agent
 cd ~/animus/agent-9a2b3c4d-5e6f-7890-abcd-ef1234567890
 
-# Activate the Sanctum-wide virtual environment
+# Activate the Animus-wide virtual environment
 source ~/animus/venv/bin/activate  # On Windows: ~/animus/venv/Scripts/activate
 
 # Run the instance from the agent's Broca clone
@@ -246,7 +246,7 @@ sudo systemctl status broca-agent-1
 # Queue management for specific agent
 cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368
 
-# Activate the Sanctum-wide virtual environment
+# Activate the Animus-wide virtual environment
 source ~/animus/venv/bin/activate  # On Windows: ~/animus/venv/Scripts/activate
 
 # Use CLI tools from the agent's Broca clone
@@ -299,7 +299,7 @@ cp backups/20241201/agent-721679f6-c8af-4e01-8677-dc042dc80368_animus.db \
 cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca
 git pull origin main
 
-# Update Sanctum-wide virtual environment
+# Update Animus-wide virtual environment
 cd ~/animus
 source venv/bin/activate
 pip install -r agent-721679f6-c8af-4e01-8677-dc042dc80368/broca/requirements.txt
@@ -478,7 +478,7 @@ echo "Start with: cd agent-${AGENT_ID} && source ~/animus/venv/bin/activate && p
 
 cd ~/animus
 
-echo "Sanctum: Broca 2 Agent Health Check"
+echo "Animus: Broca 2 Agent Health Check"
 echo "==================================="
 
 for agent_dir in agent-*/; do
