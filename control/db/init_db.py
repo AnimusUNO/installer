@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Database initialization script for Sanctum UI
+Database initialization script for Animus UI
 Creates the database and applies the schema from init_database.sql
 """
 

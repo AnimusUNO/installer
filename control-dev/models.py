@@ -1,5 +1,5 @@
 """
-SQLAlchemy models for Sanctum UI database
+SQLAlchemy models for Animus UI database
 """
 
 from sqlalchemy import create_engine, Column, Integer, String, Text, Boolean, DateTime, ForeignKey, JSON

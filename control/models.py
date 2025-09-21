@@ -1,5 +1,5 @@
 """
-Sanctum Control Interface - Database Models
+Animus Control Interface - Database Models
 Copyright (c) 2025 Mark Rizzn Hopkins
 
 This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 """
-SQLAlchemy models for Sanctum UI database
+SQLAlchemy models for Animus UI database
 """
 
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, Text, DateTime, ForeignKey

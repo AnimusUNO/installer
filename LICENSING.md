@@ -1,8 +1,8 @@
-# Sanctum Licensing Structure
+# Animus Licensing Structure
 
 ## Overview
 
-Sanctum uses a **dual-license structure** to ensure appropriate licensing for different types of content:
+Animus uses a **dual-license structure** to ensure appropriate licensing for different types of content:
 
 - **Code**: GNU Affero General Public License v3.0 (AGPLv3)
 - **Documentation & Data**: Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA 4.0)
@@ -55,7 +55,7 @@ All code files include AGPLv3 headers:
 
 ```python
 """
-Sanctum Control Interface - [Module Name]
+Animus Control Interface - [Module Name]
 Copyright (c) 2025 Mark Rizzn Hopkins
 
 This program is free software: you can redistribute it and/or modify
@@ -78,7 +78,7 @@ All HTML templates include AGPLv3 headers:
 
 ```html
 <!--
-  Sanctum Control Interface - [Template Name]
+  Animus Control Interface - [Template Name]
   Copyright (c) 2025 Mark Rizzn Hopkins
 
   This program is free software: you can redistribute it and/or modify
@@ -101,7 +101,7 @@ All JavaScript files include AGPLv3 headers:
 
 ```javascript
 /**
- * Sanctum Control Interface - [File Name]
+ * Animus Control Interface - [File Name]
  * Copyright (c) 2025 Mark Rizzn Hopkins
  *
  * This program is free software: you can redistribute it and/or modify
@@ -124,7 +124,7 @@ All CSS files include AGPLv3 headers:
 
 ```css
 /**
- * Sanctum Control Interface - [File Name]
+ * Animus Control Interface - [File Name]
  * Copyright (c) 2025 Mark Rizzn Hopkins
  *
  * This program is free software: you can redistribute it and/or modify
@@ -165,7 +165,7 @@ All SQL files include AGPLv3 headers:
 ## Why This Structure?
 
 ### AGPLv3 for Code
-- **Network Use**: AGPLv3 ensures that if you run modified versions of Sanctum on a network server, users must have access to the source code
+- **Network Use**: AGPLv3 ensures that if you run modified versions of Animus on a network server, users must have access to the source code
 - **Copyleft**: Ensures that improvements and modifications remain open source
 - **Community**: Promotes collaboration and prevents proprietary forks
 
@@ -182,7 +182,7 @@ All SQL files include AGPLv3 headers:
 - **New files**: Must include appropriate license headers
 
 ### For Users
-- **Running Sanctum**: AGPLv3 applies
+- **Running Animus**: AGPLv3 applies
 - **Modifying code**: AGPLv3 applies
 - **Using documentation**: CC-BY-SA 4.0 applies
 - **Distributing**: Must comply with both licenses

@@ -21,7 +21,7 @@ INSERT INTO agents (
     'iris',
     'iris_letta_001',
     'Iris',
-    'Iris is the flagship Sanctum agent—an adaptive operator–oracle that orchestrates tools, deepens user context, and speaks with clarity and care. She''s the opposite of Siri. Get it?',
+    'Iris is the flagship Animus agent—an adaptive operator–oracle that orchestrates tools, deepens user context, and speaks with clarity and care. She''s the opposite of Siri. Get it?',
     'Healthy',
     1, -- created_by admin
     '{"version": "0.8.3", "embedding_model": "letta-free", "context_window": 8192, "temperature": 0.7, "max_tokens": 4096, "persona_version": "v1", "core_memory_blocks": ["SEP", "persona", "human"], "tool_count": 6, "is_default": true, "test_data": true}',

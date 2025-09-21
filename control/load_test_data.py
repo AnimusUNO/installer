@@ -29,7 +29,7 @@ def simple_load():
         """, (
             'iris_letta_001',
             'Iris',
-            'Iris is the flagship Sanctum agent—an adaptive operator–oracle that orchestrates tools, deepens user context, and speaks with clarity and care. She\'s the opposite of Siri. Get it?',
+            'Iris is the flagship Animus agent—an adaptive operator–oracle that orchestrates tools, deepens user context, and speaks with clarity and care. She\'s the opposite of Siri. Get it?',
             'Healthy',
             1,
             '{"version": "0.8.3"}',

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Sanctum Control Interface - Main Flask Application
+Animus Control Interface - Main Flask Application
 Copyright (c) 2025 Mark Rizzn Hopkins
 
 This program is free software: you can redistribute it and/or modify
@@ -401,7 +401,7 @@ def chat():
     if not message:
         return jsonify({'error': 'Message is required'}), 400
     
-    # TODO: Integrate with actual Sanctum backend
+    # TODO: Integrate with actual Animus backend
     # For now, return a simple response
     response = {
         'message': f"I received your message: \"{message}\". Processing...",

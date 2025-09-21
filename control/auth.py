@@ -1,5 +1,5 @@
 """
-Sanctum Control Interface - Authentication Module
+Animus Control Interface - Authentication Module
 Copyright (c) 2025 Mark Rizzn Hopkins
 
 This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 """
-Authentication module for Sanctum UI
+Authentication module for Animus UI
 Handles user login, session management, and password hashing
 """
 

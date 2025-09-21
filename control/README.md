@@ -1,4 +1,4 @@
-# Sanctum Control Interface - Authentication System
+# Animus Control Interface - Authentication System
 
 ⚠️ **HEAVILY UNDER DEVELOPMENT - EARLY ALPHA** ⚠️
 
@@ -17,7 +17,7 @@
 - **Testing**: Limited testing has been performed - use at your own risk
 
 ## Overview
-This is the Phase 1 implementation of the Sanctum UI Database Schema Plan, focusing on user management and authentication.
+This is the Phase 1 implementation of the Animus UI Database Schema Plan, focusing on user management and authentication.
 
 ## Features Implemented
 

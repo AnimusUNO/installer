@@ -1,5 +1,5 @@
 /**
- * Sanctum Control Interface - User Management JavaScript
+ * Animus Control Interface - User Management JavaScript
  * Copyright (c) 2025 Mark Rizzn Hopkins
  *
  * This program is free software: you can redistribute it and/or modify
@@ -165,7 +165,7 @@ async function discoverUsers() {
                                     <td class="text-muted">${user.interaction_count}</td>
                                     <td>
                                         <button class="btn btn-success btn-sm" onclick="promoteUser('${user.username}', '${user.email}')">
-                                            ➕ Promote to Sanctum
+                                            ➕ Promote to Animus
                                         </button>
                                     </td>
                                 </tr>

@@ -1,5 +1,5 @@
 """
-Authentication module for Sanctum UI
+Authentication module for Animus UI
 Handles user login, session management, and password hashing
 """
 

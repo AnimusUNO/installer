@@ -1,5 +1,5 @@
 /**
- * Sanctum Control Interface - System Settings JavaScript
+ * Animus Control Interface - System Settings JavaScript
  * Copyright (c) 2025 Mark Rizzn Hopkins
  *
  * This program is free software: you can redistribute it and/or modify

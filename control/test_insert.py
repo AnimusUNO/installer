@@ -17,7 +17,7 @@ def test_insert():
         """, (
             'iris_letta_001',
             'Iris',
-            'Iris is the flagship Sanctum agent',
+            'Iris is the flagship Animus agent',
             'Healthy',
             1,
             '{"version": "0.8.3"}',
@@ -35,7 +35,7 @@ def test_insert():
         """, (
             'iris_letta_002',
             'Iris 2',
-            'Iris is the flagship Sanctum agent',
+            'Iris is the flagship Animus agent',
             'Healthy',
             1,
             '{"version": "0.8.3"}',

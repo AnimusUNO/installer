@@ -1,8 +1,8 @@
-# Sanctum Documentation
+# Animus Documentation
 
 ⚠️ **HEAVILY UNDER DEVELOPMENT - EARLY ALPHA** ⚠️
 
-This folder contains all documentation for the Sanctum system, organized into logical categories for easy navigation.
+This folder contains all documentation for the Animus system, organized into logical categories for easy navigation.
 
 ## 🚨 Development Status
 

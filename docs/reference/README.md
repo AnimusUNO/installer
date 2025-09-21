@@ -2,7 +2,7 @@
 
 ⚠️ **HEAVILY UNDER DEVELOPMENT - EARLY ALPHA** ⚠️
 
-This folder contains technical reference documentation for the Sanctum system.
+This folder contains technical reference documentation for the Animus system.
 
 ## 🚨 Development Status
 
@@ -23,7 +23,7 @@ This folder contains technical reference documentation for the Sanctum system.
 - **`letta-api-reference.md`** - Letta API endpoint documentation and specifications
 
 ### Database & Schema
-- **`registry_schema.md`** - **MASTER** database schema reference for the Sanctum registry (complete schema)
+- **`registry_schema.md`** - **MASTER** database schema reference for the Animus registry (complete schema)
 
 ### Installation & Criteria
 - **`docs-on-installer-criteria.md`** - Installation criteria and requirements reference

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Sanctum Control Interface - System Config Test Script
+Animus Control Interface - System Config Test Script
 Copyright (c) 2025 Mark Rizzn Hopkins
 
 This program is free software: you can redistribute it and/or modify

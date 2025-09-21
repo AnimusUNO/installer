@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function shareMessage(text) {
         if (navigator.share) {
             navigator.share({
-                title: 'Message from Sanctum',
+                title: 'Message from Animus',
                 text: text,
                 url: window.location.href
             }).then(() => {
@@ -492,7 +492,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fallback share method
     function fallbackShare(text) {
         // Create a temporary textarea to copy the shareable link
-        const shareText = `Message from Sanctum:\n\n${text}\n\n${window.location.href}`;
+        const shareText = `Message from Animus:\n\n${text}\n\n${window.location.href}`;
         copyToClipboard(shareText);
         
         // Show feedback
@@ -556,7 +556,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to refresh conversation for a new agent
     function refreshConversation(agentName) {
         // Update page title to show current agent
-        document.title = `Chat with ${agentName} - Sanctum`;
+        document.title = `Chat with ${agentName} - Animus`;
         
         // Restore dropdown button text
         if (agentDropdown) {

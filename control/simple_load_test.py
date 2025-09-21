@@ -29,7 +29,7 @@ def simple_load():
         """, (
             'iris_letta_001',
             'Iris',
-            'Iris is the flagship Sanctum agent',
+            'Iris is the flagship Animus agent',
             'Healthy',
             1,
             '{"version": "0.8.3"}',

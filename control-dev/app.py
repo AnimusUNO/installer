@@ -193,7 +193,7 @@ def chat():
     if not message:
         return jsonify({'error': 'Message is required'}), 400
     
-    # TODO: Integrate with actual Sanctum backend
+    # TODO: Integrate with actual Animus backend
     # For now, return a simple response
     response = {
         'message': f"I received your message: \"{message}\". Processing...",

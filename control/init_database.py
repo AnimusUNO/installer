@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Sanctum Control Interface - Database Initialization Script
+Animus Control Interface - Database Initialization Script
 Copyright (c) 2025 Mark Rizzn Hopkins
 
 This program is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ import bcrypt
 
 def init_database():
     """Initialize the database with all tables and default data"""
-    print("🚀 Initializing Sanctum UI Database...")
+    print("🚀 Initializing Animus UI Database...")
     
     # Create tables
     print("📋 Creating database tables...")
