@@ -8,8 +8,8 @@ const mockPlugins = [
         status: "active",
         lastUpdated: "2024-01-15T10:30:00Z",
         description: "Core SMCP functionality and base classes",
-        repository: "https://github.com/sanctum/smcp-core",
-        author: "Sanctum Team"
+        repository: "https://github.com/animus/smcp-core",
+        author: "Animus Team"
     },
     {
         id: 2,
@@ -19,8 +19,8 @@ const mockPlugins = [
         status: "active",
         lastUpdated: "2024-01-14T15:45:00Z",
         description: "Handles inter-agent communication protocols",
-        repository: "https://github.com/sanctum/comm-hub",
-        author: "Sanctum Team"
+        repository: "https://github.com/animus/comm-hub",
+        author: "Animus Team"
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ const mockPlugins = [
         status: "inactive",
         lastUpdated: "2024-01-10T09:20:00Z",
         description: "Advanced data processing and transformation",
-        repository: "https://github.com/sanctum/data-proc",
+        repository: "https://github.com/animus/data-proc",
         author: "Data Team"
     },
     {
@@ -41,7 +41,7 @@ const mockPlugins = [
         status: "error",
         lastUpdated: "2024-01-12T14:15:00Z",
         description: "Common utility functions and helpers",
-        repository: "https://github.com/sanctum/utility-toolkit",
+        repository: "https://github.com/animus/utility-toolkit",
         author: "Utility Team"
     },
     {
@@ -52,7 +52,7 @@ const mockPlugins = [
         status: "active",
         lastUpdated: "2024-01-13T11:00:00Z",
         description: "Security and authentication services",
-        repository: "https://github.com/sanctum/security-module",
+        repository: "https://github.com/animus/security-module",
         author: "Security Team"
     }
 ];

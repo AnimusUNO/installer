@@ -1,5 +1,5 @@
 /**
- * Sanctum Control Interface - Chat JavaScript
+ * Animus Control Interface - Chat JavaScript
  * Copyright (c) 2025 Mark Rizzn Hopkins
  *
  * This program is free software: you can redistribute it and/or modify
@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function shareMessage(text) {
         if (navigator.share) {
             navigator.share({
-                title: 'Message from Sanctum',
+                title: 'Message from Animus',
                 text: text,
                 url: window.location.href
             }).then(() => {

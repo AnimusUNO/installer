@@ -8,7 +8,7 @@ import sqlite3
 import os
 
 def load_test_data():
-    db_path = os.path.join(os.path.dirname(__file__), 'db', 'sanctum_ui.db')
+    db_path = os.path.join(os.path.dirname(__file__), 'db', 'animus_ui.db')
     
     if not os.path.exists(db_path):
         print(f"❌ Database not found at {db_path}")

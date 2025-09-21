@@ -37,7 +37,7 @@ def test_database():
             print("   Creating admin user...")
             admin_user = User(
                 username='admin',
-                email='admin@sanctum.local',
+                email='admin@animus.local',
                 password_hash=hash_password('admin123'),
                 role='admin',
                 permissions=['*'],

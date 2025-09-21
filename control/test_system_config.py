@@ -59,7 +59,7 @@ def test_system_config():
             'openai_api_key': config.openai_api_key,
             'anthropic_api_key': config.anthropic_api_key,
             'ollama_base_url': config.ollama_base_url,
-            'sanctum_base_path': config.sanctum_base_path,
+            'animus_base_path': config.animus_base_path,
             'letta_data_path': config.letta_data_path,
             'flask_port': config.flask_port,
             'smcp_port': config.smcp_port,

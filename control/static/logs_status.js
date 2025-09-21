@@ -48,7 +48,7 @@ const mockData = {
             module: 'Database Connector',
             message: 'Failed to establish database connection',
             details: {
-                database: 'sanctum_main',
+                database: 'animus_main',
                 host: 'localhost:5432',
                 errorCode: 'ECONNREFUSED',
                 retryAttempts: 5
@@ -81,7 +81,7 @@ const mockData = {
             status: 'Active',
             acknowledged: false,
             details: {
-                database: 'sanctum_main',
+                database: 'animus_main',
                 errorCode: 'ECONNREFUSED',
                 impact: 'High - All database operations affected',
                 resolution: 'Check database service status and network connectivity'

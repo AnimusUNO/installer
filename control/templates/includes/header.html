@@ -1,5 +1,5 @@
 <!--
-  Sanctum Control Interface - Header Template
+  Animus Control Interface - Header Template
   Copyright (c) 2025 Mark Rizzn Hopkins
 
   This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
-<!-- Unified Header Template for Sanctum -->
+<!-- Unified Header Template for Animus -->
 <header class="d-flex align-items-center justify-content-between p-2 px-3 border-bottom">
     <div class="d-flex align-items-center gap-2">
         {% if request.endpoint == 'index' %}
@@ -36,7 +36,7 @@
         </span>
         {% else %}
         <!-- Standard page title -->
-        <span class="fw-medium">{{ page_title | default('Sanctum') }}</span>
+        <span class="fw-medium">{{ page_title | default('Animus') }}</span>
         {% endif %}
     </div>
     <div class="d-flex align-items-center gap-3">

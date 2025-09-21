@@ -84,7 +84,7 @@ CREATE INDEX IF NOT EXISTS idx_agents_status ON agents(status);
 
 -- Insert default admin user (password: admin123)
 INSERT OR IGNORE INTO users (id, username, email, password_hash, role, permissions, is_active, failed_login_attempts) VALUES
-(1, 'admin', 'admin@sanctum.local', '$2b$12$H2UoYl0FVEaq8moKx31a8OUu.RExWusGUAVk17bqgUBUI2krD771q', 'admin', '["*"]', true, 0);
+(1, 'admin', 'admin@animus.local', '$2b$12$H2UoYl0FVEaq8moKx31a8OUu.RExWusGUAVk17bqgUBUI2krD771q', 'admin', '["*"]', true, 0);
 
 -- Note: Test agents are loaded via test.sql for development
 
@@ -115,5 +115,5 @@ INSERT OR IGNORE INTO schema_version (version, description) VALUES
 -- - Proper indexing for performance
 --
 -- To reset database during development:
--- rm control/db/sanctum_ui.db
--- sqlite3 control/db/sanctum_ui.db < control/db/init_database.sql
+-- rm control/db/animus_ui.db
+-- sqlite3 control/db/animus_ui.db < control/db/init_database.sql

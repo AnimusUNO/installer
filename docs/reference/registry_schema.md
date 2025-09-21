@@ -1,7 +1,7 @@
-# Sanctum Registry Database Schema - Master Reference
+# Animus Registry Database Schema - Master Reference
 
 ## Overview
-This document defines the **complete and authoritative database schema** for the Sanctum Configurator registry. This is the master schema that all implementation plans should reference.
+This document defines the **complete and authoritative database schema** for the Animus Configurator registry. This is the master schema that all implementation plans should reference.
 
 **Note**: This schema includes all possible tables and features. For implementation planning, see `../planning/ui-database-schema-planning.md` which defines phased implementation and UI-specific requirements.
 
@@ -38,7 +38,7 @@ agents
 - id (PRIMARY KEY)
 - letta_uid (VARCHAR, UNIQUE, NOT NULL) - Letta agent UID (required unique identifier)
 - name (VARCHAR, NULL) - e.g., "Athena", "Monday", "Timbre" (optional but preferred)
-- description (TEXT) - e.g., "Sanctum Configuration Assistant"
+- description (TEXT) - e.g., "Animus Configuration Assistant"
 - status (ENUM) - "Healthy", "Degraded", "Off", "Ready"
 - created_by (INTEGER, FOREIGN KEY -> users.id) - Who created this agent
 - created_at (TIMESTAMP)
@@ -317,7 +317,7 @@ CREATE INDEX idx_web_chat_sessions_agent ON web_chat_sessions(agent_id);
 ## Module Discovery & Integration
 
 ### Manifest Requirements
-Modules are discovered by Sanctum through `manifest.json` files. The format is designed to be minimal but extensible.
+Modules are discovered by Animus through `manifest.json` files. The format is designed to be minimal but extensible.
 
 #### **Minimal Required Fields**
 ```json
@@ -353,20 +353,20 @@ Modules are discovered by Sanctum through `manifest.json` files. The format is d
 ```
 
 ### Discovery Process
-Sanctum automatically scans these locations for manifest files:
-- `~/sanctum/agents/*/modules/*/manifest.json` - Agent-specific modules
-- `~/sanctum/tools/*/manifest.json` - Global tools
-- `~/sanctum/plugins/*/manifest.json` - Global plugins
+Animus automatically scans these locations for manifest files:
+- `~/animus/agents/*/modules/*/manifest.json` - Agent-specific modules
+- `~/animus/tools/*/manifest.json` - Global tools
+- `~/animus/plugins/*/manifest.json` - Global plugins
 
 ### Design Philosophy
 - **Low Barrier to Entry**: Just 2 fields required to get started
 - **Progressive Enhancement**: Add more fields as needed
-- **Graceful Fallbacks**: Sanctum handles missing optional fields
+- **Graceful Fallbacks**: Animus handles missing optional fields
 - **Developer Friendly**: No complex validation or rigid requirements
 
 ## Questions for Discussion
 
-1. **Scope**: Should this support multiple Sanctum instances or just one?
+1. **Scope**: Should this support multiple Animus instances or just one?
 2. **Users**: Do we need multi-user support or just single admin?
 3. **Encryption**: What level of security is needed for sensitive configs?
 4. **Performance**: Expected data volume and query patterns?

@@ -28,7 +28,7 @@ from datetime import datetime
 import json
 
 # Database configuration
-DB_PATH = 'db/sanctum_ui.db'  # Relative to control/ directory
+DB_PATH = 'db/animus_ui.db'  # Relative to control/ directory
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 # Create engine and session

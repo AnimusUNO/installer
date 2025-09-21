@@ -8,7 +8,7 @@ let backupData = {
     backups: [
         {
             id: 'backup_001',
-            name: 'sanctum-full-backup-2024-01-15',
+            name: 'animus-full-backup-2024-01-15',
             type: 'full',
             size: '2.4 GB',
             created: '2024-01-15 14:30:00',
@@ -17,7 +17,7 @@ let backupData = {
         },
         {
             id: 'backup_002',
-            name: 'sanctum-config-backup-2024-01-14',
+            name: 'animus-config-backup-2024-01-14',
             type: 'config',
             size: '156 MB',
             created: '2024-01-14 02:00:00',
@@ -26,7 +26,7 @@ let backupData = {
         },
         {
             id: 'backup_003',
-            name: 'sanctum-modules-backup-2024-01-13',
+            name: 'animus-modules-backup-2024-01-13',
             type: 'modules',
             size: '892 MB',
             created: '2024-01-13 02:00:00',
@@ -35,7 +35,7 @@ let backupData = {
         },
         {
             id: 'backup_004',
-            name: 'sanctum-emergency-backup-2024-01-12',
+            name: 'animus-emergency-backup-2024-01-12',
             type: 'full',
             size: '2.1 GB',
             created: '2024-01-12 18:45:00',
@@ -48,7 +48,7 @@ let backupData = {
         frequency: 'weekly',
         time: '02:00',
         retention: 'keep_7',
-        storageLocation: '/var/backups/sanctum',
+        storageLocation: '/var/backups/animus',
         notifyOnBackup: false
     },
     storageInfo: {
@@ -286,7 +286,7 @@ function generateBackupName() {
     const now = new Date();
     const dateStr = now.toISOString().split('T')[0];
     const timeStr = now.toTimeString().split(' ')[0].replace(/:/g, '-');
-    return `sanctum-backup-${dateStr}-${timeStr}`;
+    return `animus-backup-${dateStr}-${timeStr}`;
 }
 
 // Simulate backup process
@@ -461,7 +461,7 @@ function exportBackupList() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'sanctum-backups.json';
+    a.download = 'animus-backups.json';
     a.click();
     URL.revokeObjectURL(url);
     
@@ -514,7 +514,7 @@ function resetAutoBackupConfig() {
         frequency: 'weekly',
         time: '02:00',
         retention: 'keep_7',
-        storageLocation: '/var/backups/sanctum',
+        storageLocation: '/var/backups/animus',
         notifyOnBackup: false
     };
     

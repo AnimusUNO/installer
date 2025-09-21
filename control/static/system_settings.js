@@ -74,7 +74,7 @@ function saveSystemConfig() {
         openai_api_key: document.getElementById('openaiKey').value,
         anthropic_api_key: document.getElementById('anthropicKey').value,
         ollama_base_url: document.getElementById('ollamaUrl').value,
-        sanctum_base_path: document.getElementById('sanctumPath').value,
+        animus_base_path: document.getElementById('animusPath').value,
         letta_data_path: document.getElementById('lettaPath').value,
         flask_port: parseInt(document.getElementById('flaskPort').value),
         smcp_port: parseInt(document.getElementById('smcpPort').value)

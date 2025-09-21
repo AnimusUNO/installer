@@ -156,7 +156,7 @@ WHERE id = 'timbre';
 **Login not working:**
 - Check database initialization: `python -c "from models import init_db; init_db()"`
 - Verify admin password: `python setup_admin.py`
-- Check database file exists: `ls control/db/sanctum_ui.db`
+- Check database file exists: `ls control/db/animus_ui.db`
 
 **Session expired:**
 - Sessions expire after 24 hours
@@ -170,7 +170,7 @@ WHERE id = 'timbre';
 
 ### Database Reset
 ```bash
-rm control/db/sanctum_ui.db
+rm control/db/animus_ui.db
 python -c "from models import init_db; init_db()"
 python setup_admin.py
 ```
@@ -192,7 +192,7 @@ control/
 ├── models.py           # SQLAlchemy models
 ├── setup_admin.py      # Admin password setup
 ├── db/
-│   ├── sanctum_ui.db   # SQLite database
+│   ├── animus_ui.db   # SQLite database
 │   └── init_database.sql # Schema initialization
 ├── templates/
 │   ├── login.html      # Login page

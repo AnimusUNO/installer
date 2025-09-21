@@ -31,7 +31,7 @@ app = Flask(__name__)
 # Configuration
 app.config['SECRET_KEY'] = 'your-secret-key-here'  # Change in production
 app.config['STATIC_FOLDER'] = 'static'
-app.config['DATABASE_PATH'] = 'db/sanctum_ui.db'  # Path to integrated database
+app.config['DATABASE_PATH'] = 'db/animus_ui.db'  # Path to integrated database
 
 # Default API keys for working Flask system
 app.config['DEFAULT_API_KEY'] = 'ObeyG1ant'

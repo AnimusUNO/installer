@@ -10,7 +10,7 @@ from datetime import datetime
 import os
 
 # Database configuration
-DB_PATH = os.path.join(os.path.dirname(__file__), 'db', 'sanctum_ui.db')
+DB_PATH = os.path.join(os.path.dirname(__file__), 'db', 'animus_ui.db')
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 # Create engine and session

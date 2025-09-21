@@ -13,7 +13,7 @@ def init_database():
     
     # Get the directory where this script is located
     db_dir = Path(__file__).parent
-    db_path = db_dir / "sanctum_ui.db"
+    db_path = db_dir / "animus_ui.db"
     sql_script = db_dir / "init_database.sql"
     
     print(f"Initializing database at: {db_path}")

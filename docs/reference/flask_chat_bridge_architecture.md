@@ -1,8 +1,8 @@
-# Flask Chat Bridge Architecture - Sanctum Integration
+# Flask Chat Bridge Architecture - Animus Integration
 
 ## Overview
 
-This document outlines the recommended approach for implementing a Flask-based chat bridge to replace the PHP web chat plugin architecture. The Flask bridge will provide a lightweight, Python-native solution that integrates seamlessly with the existing Sanctum control system while maintaining clean separation between the chat interface and control interface.
+This document outlines the recommended approach for implementing a Flask-based chat bridge to replace the PHP web chat plugin architecture. The Flask bridge will provide a lightweight, Python-native solution that integrates seamlessly with the existing Animus control system while maintaining clean separation between the chat interface and control interface.
 
 ---
 
@@ -12,7 +12,7 @@ This document outlines the recommended approach for implementing a Flask-based c
 
 ```
 ┌─────────────────┐    WebSocket/HTTP    ┌─────────────────┐
-│   Sanctum UI    │ ◄──────────────────► │   Flask Chat    │
+│   Animus UI    │ ◄──────────────────► │   Flask Chat    │
 │   (Control)     │                      │   Bridge        │
 │                 │                      │   (API for      │
 └─────────────────┘                      │   Broca)        │
@@ -21,14 +21,14 @@ This document outlines the recommended approach for implementing a Flask-based c
          │                                       │ HTTP
          ▼                                       │
 ┌─────────────────┐                      ┌─────────────────┐
-│   Sanctum       │                      │   Broca Core    │
+│   Animus       │                      │   Broca Core    │
 │   Registry DB   │                      │   (Queue/Agent) │
 │   (Sessions)    │                      └─────────────────┘
 └─────────────────┘
 ```
 
 **Flow**:
-- **Chat UI** directly reads/writes to Sanctum Registry DB
+- **Chat UI** directly reads/writes to Animus Registry DB
 - **Flask Chat Bridge** provides API endpoints for Broca to communicate with
 - **Broca** sends messages via API to update chat state
 - **WebSocket** provides real-time updates between UI and bridge
@@ -37,9 +37,9 @@ This document outlines the recommended approach for implementing a Flask-based c
 
 ### **Key Design Principles**
 
-1. **Python Ecosystem Alignment**: Flask integrates naturally with existing Sanctum Python infrastructure
+1. **Python Ecosystem Alignment**: Flask integrates naturally with existing Animus Python infrastructure
 2. **Minimal Complexity**: Keep only essential features, eliminate enterprise-level over-engineering
-3. **Session Persistence**: Use existing Sanctum registry database for session management
+3. **Session Persistence**: Use existing Animus registry database for session management
 4. **Real-time Communication**: WebSocket for instant updates, no polling delays
 5. **Clean Separation**: Chat system independent of control interface for maintainability
 6. **Database Isolation**: Maintain separation from Broca databases for security
@@ -51,7 +51,7 @@ This document outlines the recommended approach for implementing a Flask-based c
 ### **Directory Structure**
 
 ```
-/sanctum/control/
+/animus/control/
 ├── app.py                   # Main control system Flask app
 ├── static/                  # Static files (CSS, JS, images)
 ├── templates/               # HTML templates
@@ -68,20 +68,20 @@ This document outlines the recommended approach for implementing a Flask-based c
 
 ### **Integration Points**
 
-#### **Sanctum Control System**
+#### **Animus Control System**
 - **Process Management**: Run chat bridge alongside main control app
 - **Configuration**: Use same `.env` patterns as other modules
 - **Logging**: Integrate with existing log aggregation system
 - **Health Monitoring**: Add to existing status pages
 - **Shared Infrastructure**: Leverage existing control system Flask app and static files
-- **Database Access**: Use existing `/sanctum/control/registry.db` for chat sessions
-- **Templates**: Add chat.html to existing `/sanctum/control/templates/` directory
+- **Database Access**: Use existing `/animus/control/animus_ui.db` for chat sessions
+- **Templates**: Add chat.html to existing `/animus/control/templates/` directory
 
 #### **Broca Integration**
 - **Direct Communication**: Use Broca's existing queue and agent systems
 - **Database Access**: Leverage Broca's conversation storage
 - **User Management**: Integrate with existing Broca user system
-- **Database Isolation**: Chat sessions stored in Sanctum registry, separate from Broca databases
+- **Database Isolation**: Chat sessions stored in Animus registry, separate from Broca databases
 
 ---
 
@@ -217,13 +217,13 @@ if __name__ == '__main__':
 
 ### **3. Chat Template (`chat.html`)**
 
-**Location**: `/sanctum/control/templates/chat.html`
+**Location**: `/animus/control/templates/chat.html`
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sanctum Chat</title>
+    <title>Animus Chat</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
 </head>
 <body>
@@ -331,7 +331,7 @@ class SanctumChatWidget {
     initializeWidget() {
         // Create chat widget DOM
         this.widget = document.createElement('div');
-        this.widget.className = 'sanctum-chat-widget';
+        this.widget.className = 'animus-chat-widget';
         this.widget.innerHTML = this.getWidgetHTML();
         
         document.body.appendChild(this.widget);
@@ -387,16 +387,16 @@ class SanctumChatWidget {
     }
     
     getUserId() {
-        // Get user ID from existing Sanctum authentication
+        // Get user ID from existing Animus authentication
         // This integrates with your existing user system
-        return window.sanctumUserId || 'anonymous';
+        return window.animusUserId || 'anonymous';
     }
 }
 ```
 
 ---
 
-## Integration with Sanctum Control System
+## Integration with Animus Control System
 
 ### **1. Process Management**
 
@@ -404,11 +404,11 @@ Run the chat bridge alongside your main control system:
 
 ```bash
 # Terminal 1: Main control system
-cd /sanctum/control
+cd /animus/control
 python app.py
 
 # Terminal 2: Chat bridge
-cd /sanctum/control/chat_bridge
+cd /animus/control/chat_bridge
 python app.py
 ```
 
@@ -416,7 +416,7 @@ python app.py
 
 ### **2. Configuration Integration**
 
-Add to `/sanctum/.env`:
+Add to `/animus/.env`:
 
 ```bash
 # Chat Bridge Configuration
@@ -460,7 +460,7 @@ requests==2.31.0
 
 ```bash
 # Install dependencies
-cd /sanctum/control/chat_bridge
+cd /animus/control/chat_bridge
 pip install -r requirements.txt
 
 # Run the chat bridge

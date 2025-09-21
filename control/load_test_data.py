@@ -2,7 +2,7 @@
 import sqlite3
 
 def simple_load():
-    db_path = 'db/sanctum_ui.db'
+    db_path = 'db/animus_ui.db'
     
     try:
         conn = sqlite3.connect(db_path)

@@ -44,7 +44,7 @@ def init_database():
     
     if os.path.exists(sql_file_path):
         # Connect to the database
-        db_path = os.path.join(os.path.dirname(__file__), 'db', 'sanctum_ui.db')
+        db_path = os.path.join(os.path.dirname(__file__), 'db', 'animus_ui.db')
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
         
@@ -80,7 +80,7 @@ def init_database():
             
             admin_user = User(
                 username='admin',
-                email='admin@sanctum.local',
+                email='admin@animus.local',
                 password_hash=password_hash,
                 role='admin',
                 permissions='["*"]',
@@ -104,7 +104,7 @@ def init_database():
                 SystemConfig(config_key='openai_api_key', config_value='', description='OpenAI API key for AI integrations'),
                 SystemConfig(config_key='anthropic_api_key', config_value='', description='Anthropic API key for AI integrations'),
                 SystemConfig(config_key='ollama_base_url', config_value='http://localhost:11434', description='Ollama base URL'),
-                SystemConfig(config_key='sanctum_base_path', config_value='~/sanctum', description='Sanctum base installation path'),
+                SystemConfig(config_key='animus_base_path', config_value='~/animus', description='Animus base installation path'),
                 SystemConfig(config_key='letta_data_path', config_value='~/.letta', description='Letta data directory path'),
                 SystemConfig(config_key='letta_server_address', config_value='https://localhost', description='Letta server address'),
                 SystemConfig(config_key='letta_server_port', config_value='443', description='Letta server port'),

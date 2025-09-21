@@ -3,7 +3,7 @@
 // Mock data for demonstration
 let discoveredUsers = [];
 let existingUsers = [
-    { id: 1, username: 'admin', email: 'admin@sanctum.local', role: 'admin', status: 'Active', lastLogin: '2024-01-15 10:30' },
+    { id: 1, username: 'admin', email: 'admin@animus.local', role: 'admin', status: 'Active', lastLogin: '2024-01-15 10:30' },
     { id: 2, username: 'john_doe', email: 'john@example.com', role: 'user', status: 'Active', lastLogin: '2024-01-14 15:45' },
     { id: 3, username: 'jane_smith', email: 'jane@example.com', role: 'viewer', status: 'Inactive', lastLogin: '2024-01-10 09:20' }
 ];
@@ -258,7 +258,7 @@ function saveConfiguration() {
         openaiKey: document.getElementById('openaiKey').value,
         anthropicKey: document.getElementById('anthropicKey').value,
         ollamaUrl: document.getElementById('ollamaUrl').value,
-        sanctumPath: document.getElementById('sanctumPath').value,
+        animusPath: document.getElementById('animusPath').value,
         lettaPath: document.getElementById('lettaPath').value
     };
     
@@ -274,7 +274,7 @@ function exportConfiguration() {
         openaiKey: document.getElementById('openaiKey').value,
         anthropicKey: document.getElementById('anthropicKey').value,
         ollamaUrl: document.getElementById('ollamaUrl').value,
-        sanctumPath: document.getElementById('sanctumPath').value,
+        animusPath: document.getElementById('animusPath').value,
         lettaPath: document.getElementById('lettaPath').value
     };
     
@@ -283,7 +283,7 @@ function exportConfiguration() {
     
     const link = document.createElement('a');
     link.href = URL.createObjectURL(dataBlob);
-    link.download = 'sanctum-config.json';
+    link.download = 'animus-config.json';
     link.click();
     
     showNotification('Configuration exported successfully!', 'success');
@@ -306,7 +306,7 @@ function importConfiguration() {
                 document.getElementById('openaiKey').value = config.openaiKey || '';
                 document.getElementById('anthropicKey').value = config.anthropicKey || '';
                 document.getElementById('ollamaUrl').value = config.ollamaUrl || '';
-                document.getElementById('sanctumPath').value = config.sanctumPath || '';
+                document.getElementById('animusPath').value = config.animusPath || '';
                 document.getElementById('lettaPath').value = config.lettaPath || '';
                 
                 showNotification('Configuration imported successfully!', 'success');

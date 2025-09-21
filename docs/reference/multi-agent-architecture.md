@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sanctum: Broca 2 supports running multiple Letta agent instances through a simple, efficient architecture where each agent runs in its own completely isolated Broca instance. This provides complete isolation between agents while maintaining a clean, scalable structure.
+Animus: Broca 2 supports running multiple Letta agent instances through a simple, efficient architecture where each agent runs in its own completely isolated Broca instance. This provides complete isolation between agents while maintaining a clean, scalable structure.
 
 ## 🏗️ Architecture Principles
 
@@ -12,8 +12,8 @@ Sanctum: Broca 2 supports running multiple Letta agent instances through a simpl
 - Separate configuration, settings, and plugin instances per agent
 - No shared Broca-specific resources between agents
 
-### 2. **Shared Sanctum Resources**
-- Only the Sanctum-wide virtual environment is shared (not Broca-specific)
+### 2. **Shared Animus Resources**
+- Only the Animus-wide virtual environment is shared (not Broca-specific)
 - Common Python dependencies reduce disk usage and maintenance
 - Each agent maintains its own complete Broca repository clone
 
@@ -25,8 +25,8 @@ Sanctum: Broca 2 supports running multiple Letta agent instances through a simpl
 ## 📁 Directory Structure
 
 ```
-~/sanctum/                    # Sanctum home directory
-├── venv/                     # Sanctum-wide virtual environment (shared by all tools)
+~/animus/                    # Animus home directory
+├── venv/                     # Animus-wide virtual environment (shared by all tools)
 ├── agent-721679f6-c8af-4e01-8677-dc042dc80368/  # Agent-specific instance
 │   ├── broca/                # Complete Broca repository clone for this agent
 │   │   ├── main.py
@@ -38,7 +38,7 @@ Sanctum: Broca 2 supports running multiple Letta agent instances through a simpl
 │   │   └── ...
 │   ├── .env                   # Agent-specific environment
 │   ├── settings.json          # Agent-specific settings
-│   ├── sanctum.db            # Agent-specific database
+│   ├── animus.db            # Agent-specific database
 │   └── logs/                 # Agent-specific logs
 ├── agent-9a2b3c4d-5e6f-7890-abcd-ef1234567890/  # Another agent
 │   ├── broca/                # Complete Broca repository clone for this agent
@@ -51,23 +51,23 @@ Sanctum: Broca 2 supports running multiple Letta agent instances through a simpl
 │   │   └── ...
 │   ├── .env
 │   ├── settings.json
-│   ├── sanctum.db
+│   ├── animus.db
 │   └── logs/
-└── other-sanctum-tools/      # Other Sanctum tools (shared venv)
+└── other-animus-tools/      # Other Animus tools (shared venv)
     ├── tool1/
     └── tool2/
 ```
 
 ## 🚀 Setup Instructions
 
-### Step 1: Create Sanctum Directory Structure
+### Step 1: Create Animus Directory Structure
 
 ```bash
 # Choose your master folder (typically your home directory or a dedicated user folder)
-mkdir ~/sanctum
-cd ~/sanctum
+mkdir ~/animus
+cd ~/animus
 
-# Create the Sanctum-wide virtual environment
+# Create the Animus-wide virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
@@ -76,25 +76,25 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 ```bash
 # For each Letta agent, create a folder named after the agent ID
-mkdir ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368
-cd ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368
+mkdir ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368
+cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368
 
 # Clone a complete Broca repository for this agent
-git clone https://github.com/sanctumos/broca.git broca
+git clone https://github.com/animus/broca.git broca
 
-# Note: Virtual environment is managed at the Sanctum level, not per Broca instance
-# The venv in ~/sanctum/venv/ is shared by all Sanctum tools
+# Note: Virtual environment is managed at the Animus level, not per Broca instance
+# The venv in ~/animus/venv/ is shared by all Animus tools
 ```
 
 ### Step 3: Configure Agent-Specific Instances
 
 ```bash
 # Copy base configuration from the cloned repository
-cp ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca/.env.example ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368/.env
-cp ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca/settings.json ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368/
+cp ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca/.env.example ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/.env
+cp ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca/settings.json ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/
 
 # Edit agent-specific configuration
-nano ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368/.env
+nano ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/.env
 
 # Set agent-specific variables
 AGENT_ENDPOINT=https://your-letta-instance.com/api/v1
@@ -106,10 +106,10 @@ AGENT_API_KEY=your_agent_specific_api_key
 
 ```bash
 # Activate the Sanctum-wide virtual environment
-source ~/sanctum/venv/bin/activate  # On Windows: ~/sanctum/venv/Scripts/activate
+source ~/animus/venv/bin/activate  # On Windows: ~/animus/venv/Scripts/activate
 
 # Install dependencies for the Broca instance
-cd ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca
+cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca
 pip install -r requirements.txt
 
 # Run the instance from the agent's Broca clone
@@ -172,19 +172,19 @@ TELEGRAM_PHONE=your_phone_number
 
 ```bash
 # Terminal 1: Start first agent
-cd ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368
+cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368
 
 # Activate the Sanctum-wide virtual environment
-source ~/sanctum/venv/bin/activate  # On Windows: ~/sanctum/venv/Scripts/activate
+source ~/animus/venv/bin/activate  # On Windows: ~/animus/venv/Scripts/activate
 
 # Run the instance from the agent's Broca clone
 python broca/main.py
 
 # Terminal 2: Start second agent
-cd ~/sanctum/agent-9a2b3c4d-5e6f-7890-abcd-ef1234567890
+cd ~/animus/agent-9a2b3c4d-5e6f-7890-abcd-ef1234567890
 
 # Activate the Sanctum-wide virtual environment
-source ~/sanctum/venv/bin/activate  # On Windows: ~/sanctum/venv/Scripts/activate
+source ~/animus/venv/bin/activate  # On Windows: ~/animus/venv/Scripts/activate
 
 # Run the instance from the agent's Broca clone
 python broca/main.py
@@ -197,10 +197,10 @@ python broca/main.py
 npm install -g pm2
 
 # Start agents with PM2
-cd ~/sanctum
+cd ~/animus
 
-pm2 start "broca-agent-1" --interpreter ~/sanctum/venv/bin/python -- ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca/main.py
-pm2 start "broca-agent-2" --interpreter ~/sanctum/venv/bin/python -- ~/sanctum/agent-9a2b3c4d-5e6f-7890-abcd-ef1234567890/broca/main.py
+pm2 start "broca-agent-1" --interpreter ~/animus/venv/bin/python -- ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca/main.py
+pm2 start "broca-agent-2" --interpreter ~/animus/venv/bin/python -- ~/animus/agent-9a2b3c4d-5e6f-7890-abcd-ef1234567890/broca/main.py
 
 # Monitor processes
 pm2 list
@@ -224,8 +224,8 @@ After=network.target
 [Service]
 Type=simple
 User=your_username
-WorkingDirectory=/home/your_username/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368
-ExecStart=/home/your_username/sanctum/venv/bin/python broca/main.py
+WorkingDirectory=/home/your_username/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368
+ExecStart=/home/your_username/animus/venv/bin/python broca/main.py
 Restart=always
 RestartSec=10
 
@@ -244,10 +244,10 @@ sudo systemctl status broca-agent-1
 
 ```bash
 # Queue management for specific agent
-cd ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368
+cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368
 
 # Activate the Sanctum-wide virtual environment
-source ~/sanctum/venv/bin/activate  # On Windows: ~/sanctum/venv/Scripts/activate
+source ~/animus/venv/bin/activate  # On Windows: ~/animus/venv/Scripts/activate
 
 # Use CLI tools from the agent's Broca clone
 python -m broca.cli.btool queue list
@@ -265,29 +265,29 @@ python -m broca.cli.ctool settings set message_mode live
 
 ```bash
 # View agent-specific logs
-cd ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368
+cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368
 tail -f logs/broca.log
 
 # Log rotation and cleanup
-find ~/sanctum/agent-*/logs -name "*.log" -mtime +7 -delete
+find ~/animus/agent-*/logs -name "*.log" -mtime +7 -delete
 ```
 
 ### Database Management
 
 ```bash
 # Backup agent-specific databases
-cd ~/sanctum
+cd ~/animus
 mkdir -p backups/$(date +%Y%m%d)
 
 # Backup all agent databases
 for agent_dir in agent-*/; do
     agent_id=$(basename "$agent_dir")
-    cp "$agent_dir/sanctum.db" "backups/$(date +%Y%m%d)/${agent_id}_sanctum.db"
+    cp "$agent_dir/animus.db" "backups/$(date +%Y%m%d)/${agent_id}_animus.db"
 done
 
 # Restore specific agent database
-cp backups/20241201/agent-721679f6-c8af-4e01-8677-dc042dc80368_sanctum.db \
-   agent-721679f6-c8af-4e01-8677-dc042dc80368/sanctum.db
+cp backups/20241201/agent-721679f6-c8af-4e01-8677-dc042dc80368_animus.db \
+   agent-721679f6-c8af-4e01-8677-dc042dc80368/animus.db
 ```
 
 ## 🔄 Updates and Maintenance
@@ -296,11 +296,11 @@ cp backups/20241201/agent-721679f6-c8af-4e01-8677-dc042dc80368_sanctum.db \
 
 ```bash
 # Update each agent's Broca repository independently
-cd ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca
+cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca
 git pull origin main
 
 # Update Sanctum-wide virtual environment
-cd ~/sanctum
+cd ~/animus
 source venv/bin/activate
 pip install -r agent-721679f6-c8af-4e01-8677-dc042dc80368/broca/requirements.txt
 
@@ -314,7 +314,7 @@ sudo systemctl restart broca-agent-1
 
 ```bash
 # Update agent configuration
-cd ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368
+cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368
 
 # Edit configuration
 nano .env
@@ -330,7 +330,7 @@ sudo systemctl restart broca-agent-1
 
 ```bash
 # Update plugins in each agent's Broca repository
-cd ~/sanctum/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca
+cd ~/animus/agent-721679f6-c8af-4e01-8677-dc042dc80368/broca
 git pull origin main
 
 # Restart agent to pick up plugin changes
@@ -350,21 +350,21 @@ pm2 restart broca-agent-1
 
 ```bash
 # Set proper permissions for agent directories
-chmod 700 ~/sanctum/agent-*/
-chmod 600 ~/sanctum/agent-*/.env
-chmod 600 ~/sanctum/agent-*/settings.json
+chmod 700 ~/animus/agent-*/
+chmod 600 ~/animus/agent-*/.env
+chmod 600 ~/animus/agent-*/settings.json
 
 # Restrict access to shared virtual environment
-chmod 755 ~/sanctum/venv/
+chmod 755 ~/animus/venv/
 ```
 
 ### Backup Security
 
 ```bash
 # Encrypt backups
-tar -czf - ~/sanctum/agent-*/sanctum.db | \
+tar -czf - ~/animus/agent-*/animus.db | \
 gpg --encrypt --recipient your-email@example.com > \
-~/sanctum/backups/$(date +%Y%m%d)_encrypted.tar.gz.gpg
+~/animus/backups/$(date +%Y%m%d)_encrypted.tar.gz.gpg
 ```
 
 ## 🔍 Troubleshooting
@@ -374,11 +374,11 @@ gpg --encrypt --recipient your-email@example.com > \
 #### 1. **Agent Can't Start**
 ```bash
 # Check environment variables
-cd ~/sanctum/agent-{uuid}
+cd ~/animus/agent-{uuid}
 cat .env
 
 # Verify virtual environment activation
-source ~/sanctum/venv/bin/activate
+source ~/animus/venv/bin/activate
 python -c "import telethon; print('Telethon OK')"
 
 # Check logs
@@ -388,27 +388,27 @@ tail -f logs/broca.log
 #### 2. **Database Connection Issues**
 ```bash
 # Verify database file exists
-ls -la ~/sanctum/agent-{uuid}/sanctum.db
+ls -la ~/animus/agent-{uuid}/animus.db
 
 # Check database permissions
-chmod 644 ~/sanctum/agent-{uuid}/sanctum.db
+chmod 644 ~/animus/agent-{uuid}/animus.db
 
 # Test database connection
-cd ~/sanctum/agent-{uuid}
-source ~/sanctum/venv/bin/activate
+cd ~/animus/agent-{uuid}
+source ~/animus/venv/bin/activate
 python -m broca.cli.btool queue list
 ```
 
 #### 3. **Plugin Loading Issues**
 ```bash
 # Check plugin configuration
-cat ~/sanctum/agent-{uuid}/settings.json
+cat ~/animus/agent-{uuid}/settings.json
 
 # Verify plugin files exist
-ls -la ~/sanctum/agent-{uuid}/broca/plugins/
+ls -la ~/animus/agent-{uuid}/broca/plugins/
 
 # Check plugin logs
-tail -f ~/sanctum/agent-{uuid}/logs/broca.log
+tail -f ~/animus/agent-{uuid}/logs/broca.log
 ```
 
 ### Performance Monitoring
@@ -424,8 +424,8 @@ ps aux | grep "agent-"
 lsof | grep "agent-"
 
 # Monitor database performance
-cd ~/sanctum/agent-{uuid}
-source ~/sanctum/venv/bin/activate
+cd ~/animus/agent-{uuid}
+source ~/animus/venv/bin/activate
 python -m broca.cli.btool queue stats
 ```
 
@@ -446,14 +446,14 @@ if [ -z "$AGENT_ID" ] || [ -z "$AGENT_ENDPOINT" ] || [ -z "$AGENT_API_KEY" ]; th
     exit 1
 fi
 
-cd ~/sanctum
+cd ~/animus
 
 # Create agent directory
 mkdir -p "agent-${AGENT_ID}"
 cd "agent-${AGENT_ID}"
 
 # Clone Broca repository for this agent
-git clone https://github.com/sanctumos/broca.git broca
+git clone https://github.com/animus/broca.git broca
 
 # Copy configuration templates
 cp broca/.env.example .env
@@ -467,7 +467,7 @@ sed -i "s/AGENT_API_KEY=.*/AGENT_API_KEY=${AGENT_API_KEY}/" .env
 mkdir -p logs
 
 echo "Agent ${AGENT_ID} deployed successfully!"
-echo "Start with: cd agent-${AGENT_ID} && source ~/sanctum/venv/bin/activate && python broca/main.py"
+echo "Start with: cd agent-${AGENT_ID} && source ~/animus/venv/bin/activate && python broca/main.py"
 ```
 
 ### Health Monitoring
@@ -476,7 +476,7 @@ echo "Start with: cd agent-${AGENT_ID} && source ~/sanctum/venv/bin/activate && 
 #!/bin/bash
 # health-check.sh - Monitor all agent instances
 
-cd ~/sanctum
+cd ~/animus
 
 echo "Sanctum: Broca 2 Agent Health Check"
 echo "==================================="
@@ -485,7 +485,7 @@ for agent_dir in agent-*/; do
     agent_id=$(basename "$agent_dir")
     echo -n "Agent ${agent_id}: "
     
-    if [ -f "${agent_dir}/sanctum.db" ]; then
+    if [ -f "${agent_dir}/animus.db" ]; then
         echo -n "DB ✓ "
     else
         echo -n "DB ✗ "

@@ -2,7 +2,7 @@
 import sqlite3
 
 def test_insert():
-    conn = sqlite3.connect('db/sanctum_ui.db')
+    conn = sqlite3.connect('db/animus_ui.db')
     cursor = conn.cursor()
     
     try:

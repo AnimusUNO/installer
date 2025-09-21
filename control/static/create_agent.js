@@ -715,7 +715,7 @@ function exportConfig() {
         metadata: {
             exported: new Date().toISOString(),
             version: '1.0.0',
-            sanctum: 'Create Agent Configuration'
+            animus: 'Create Agent Configuration'
         }
     };
     
