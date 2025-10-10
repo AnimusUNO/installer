@@ -50,9 +50,8 @@ apt-get install -y python3 python3-venv python3-pip
 # Create Animus virtual environment
 python3 -m venv ~/animus/venv
 ~/animus/venv/bin/pip install --upgrade pip wheel
-~/animus/venv/bin/pip install flask
 
-echo "✔ Python environment and Flask installed"
+echo "✔ Python environment installed"
 
 ############################################
 # 2. Letta persistent volume + .env
@@ -311,21 +310,6 @@ server {
         proxy_read_timeout 3600;
         proxy_send_timeout 3600;
     }
-
-    location /ui/ {
-        proxy_pass http://localhost:5000/;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        
-        # Streaming safety
-        proxy_read_timeout 3600;
-        proxy_send_timeout 3600;
-    }
 }
 NGINX
 sed -i "s/DOMAIN_PLACEHOLDER/$DOMAIN/g; s/PORT_PLACEHOLDER/$LETTA_HOST_PORT/g" $NGINX_SITES_AVAILABLE/$DOMAIN
@@ -402,121 +386,6 @@ else
         crontab -l
     else
         echo "❌ Failed to add to crontab!"
-        exit 1
-    fi
-fi
-
-############################################
-# 12. Create Flask control panel
-############################################
-echo -e "\n=== Creating Flask control panel ==="
-
-# Create Flask app directory
-mkdir -p ~/animus/control/web
-
-# Create dummy Flask app
-cat > ~/animus/control/web/app.py <<'FLASK_EOF'
-#!/usr/bin/env python3
-from flask import Flask, render_template_string
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    html = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Animus Control Panel</title>
-        <style>
-            body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
-            .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-            h1 { color: #333; text-align: center; }
-            .status { background: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
-            .info { background: #e3f2fd; padding: 15px; border-radius: 5px; margin: 20px 0; }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>🚀 Animus Control Panel</h1>
-            <div class="status">
-                <h3>✅ Status: Running</h3>
-                <p>Flask app is successfully running on localhost:5000</p>
-                <p>Proxied via Nginx at /ui/</p>
-            </div>
-            <div class="info">
-                <h3>📁 Location</h3>
-                <p><strong>App:</strong> ~/animus/control/web/app.py</p>
-                <p><strong>Launch Script:</strong> ~/animus/control/run/start-flask.sh</p>
-                <p><strong>Port:</strong> 5000 (localhost only)</p>
-            </div>
-        </div>
-    </body>
-    </html>
-    """
-    return html
-
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=False)
-FLASK_EOF
-
-# Create Flask launch script in control/run (following Animus pattern)
-cat > ~/animus/control/run/run-ui.sh <<'EOF'
-#!/usr/bin/env bash
-set -euo pipefail
-
-# Launch Flask UI in detached screen session
-screen -dmS ui ~/animus/venv/bin/python ~/animus/control/web/app.py
-
-# Run directly for troubleshooting (commented out)
-# cd ~/animus/control/web
-# exec ~/animus/venv/bin/python app.py
-EOF
-
-chmod +x ~/animus/control/run/run-ui.sh
-
-# Verify files were created
-echo "Verifying Flask files were created:"
-ls -la ~/animus/control/web/
-ls -la ~/animus/control/run/run-ui.sh
-
-echo "✔ Created Flask app and launch script in control/run"
-
-############################################
-# 13. Launch Flask UI in screen session
-############################################
-echo -e "\n=== Launching Flask UI in screen session ==="
-
-# Launch Flask UI in detached screen session (same as Letta)
-screen -dmS ui ~/animus/control/run/run-ui.sh
-echo "✔ Flask UI launched in screen session 'ui'"
-
-############################################
-# 14. Add Flask to crontab for auto-start
-############################################
-echo -e "\n=== Adding Flask to crontab for auto-start ==="
-
-# Get current crontab or create empty one
-CURRENT_CRON=$(crontab -l 2>/dev/null || echo "")
-
-# Check if Flask is already in crontab
-if echo "$CURRENT_CRON" | grep -q "run-ui.sh"; then
-    echo "✔ Flask already in crontab"
-else
-    # Add @reboot entry with absolute path
-    NEW_CRON="$CURRENT_CRON
-@reboot $HOME/animus/control/run/run-ui.sh"
-    
-    # Write new crontab
-    echo "$NEW_CRON" | crontab -
-    
-    # Verify it was added
-    if crontab -l | grep -q "run-ui.sh"; then
-        echo "✔ Added Flask @reboot entry to crontab"
-        echo "Current crontab:"
-        crontab -l
-    else
-        echo "❌ Failed to add Flask to crontab!"
         exit 1
     fi
 fi
